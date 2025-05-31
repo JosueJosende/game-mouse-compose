@@ -1,22 +1,28 @@
+---
+import '@/styles/global.css';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+		<title>{title}</title>
 	</head>
-	<body>
-		<slot />
-	</body>
+	<body class="min-h-screen bg-[url(/biblio.webp)] bg-no-repeat bg-cover bg-center bg-fixed overflow-hidden">
+      <div class="relative z-0 min-h-screen">
+        <!-- Main content -->
+        <div class="relative z-10 container mx-auto px-4 py-8 min-h-screen">
+          <slot />
+        </div>
+      </div>
+    </body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
