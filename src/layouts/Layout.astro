@@ -17,12 +17,9 @@ const { title } = Astro.props;
 		<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 		<title>{title}</title>
 	</head>
-	<body class="min-h-screen bg-[url(/biblio.webp)] bg-no-repeat bg-cover bg-center bg-fixed overflow-hidden">
-      <div class="relative z-0 min-h-screen">
-        <!-- Main content -->
-        <div class="relative z-10 container mx-auto px-4 py-8 min-h-screen">
-          <slot />
-        </div>
-      </div>
-    </body>
+	<body class="min-h-screen bg-[url(/biblio.webp)] bg-no-repeat bg-cover bg-center bg-fixed overflow-hidden">     
+    <div class="relative z-10  mx-auto min-h-screen">
+      <slot />
+    </div>
+  </body>
 </html>

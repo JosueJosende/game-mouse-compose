@@ -1,6 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import GameConfig from '@/components/game/GameConfig.vue'
+// import GameConfig from '@/components/game/GameConfig.vue'
 import GamePanel from '@/components/game/GamePanel.vue'
 import HexagonalGrid from '@/components/game/HexagonalGrid.vue'
 import GameOver from '@/components/game/GameOver.vue'
@@ -8,15 +8,14 @@ import GameOver from '@/components/game/GameOver.vue'
 ---
 
 <Layout title='Deez Mouse Game'>
-	<div class="flex flex-col min-h-screen">
-    <header>
-      
+	<div class="grid place-content-center min-h-screen">
+    <header class="flex justify-center -mt-28 mb-4 opacity-50 ">
+      <img src="../../public/logo.webp" alt="word mouse">
     </header>
-    
-    <main class="flex-1 max-w-[880px] w-full mx-auto px-4 py-8">
-      <div class="config-section mb-8">
+    <main class="flex-1 max-w-[880px] w-full mx-auto px-4">
+      <!-- <div class="config-section mb-8">
         <GameConfig client:load />
-      </div>
+      </div> -->
       
       <div class="game-section grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="md:col-span-2 h-[30rem]">
