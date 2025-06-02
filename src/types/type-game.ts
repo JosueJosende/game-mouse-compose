@@ -27,4 +27,5 @@ export interface GameState {
   opponentScore: number
   opponentWords: Word[]
   joined: boolean
+  originalIdGame: string
 }

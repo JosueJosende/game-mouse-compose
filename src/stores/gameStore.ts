@@ -21,7 +21,8 @@ const initialState: GameState = {
   eventSource: null,
   opponentScore: 0,
   opponentWords: [],
-  joined: false
+  joined: false,
+  originalIdGame: ''
 }
 
 // Crea el store de juego
@@ -36,7 +37,8 @@ export async function initGameIdentifiers() {
     gameStore.set({
       ...gameStore.get(),
       playerId: player,
-      gameId: code
+      gameId: code,
+      originalIdGame: code
     });
   }
 
@@ -279,7 +281,7 @@ export async function resetGame() {
   const currentState = gameStore.get()
   const resetState: GameState = {
     ...initialState,
-    gameId: currentState.gameId, // Mantiene el mismo gameId
+    gameId: currentState.originalIdGame, 
     playerId: currentState.playerId, // Mantiene el mismo playerId
     difficulty: currentState.difficulty, // Mantiene la dificultad actual
     level: currentState.level, // Mantiene el nivel actual
@@ -297,6 +299,8 @@ export async function resetGame() {
 // Eventos del juego
 // Establecer el tiempo de duración del juego
 export async function setDifficulty(difficulty: 'easy' | 'medium' | 'hard') {
+  console.log('Saving difficulty:', difficulty);
+  
   const timeMap = {
     'easy': 180, // 3 minutes
     'medium': 120, // 2 minutes
