@@ -170,7 +170,7 @@ const handleJoin = (status) => {
     class="game-card h-full flex flex-col items-center justify-between max-h-[480px]">
     <PointsPlayer :points="score" />
     <img
-      class="w-[80%]"
+      class="w-[71%]"
       src="../../../public/compose-mouse.png"
       alt="mascota" />
     <CandleTimer :duration="timeLeft" />
