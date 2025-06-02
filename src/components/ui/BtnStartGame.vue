@@ -13,7 +13,7 @@ const handleStartGame = () => {
 <template>
   <button
     @click="handleStartGame"
-    class="relative flex items-center justify-center gap-2 py-2 px-6 text-base font-semibold text-white bg-black/50 rounded-lg cursor-pointer overflow-hidden transition-all duration-300 ease-in-out hover:shadow-[0_0_20px_#caad15] hover:scale-105 hover:text-[#caad15]">
+    class="relative w-full flex items-center justify-center py-2 px-6 text-base font-semibold text-white bg-black/30 border-t-[1px] border-[#caad156e] rounded-b-lg cursor-pointer overflow-hidden transition-all duration-300 ease-in-out scale-x-[106%] hover:text-[#caad15] hover:bg-black/80 hover:border-[#caad15]">
     <div class="z-10 leading-[1]">{{ msgButton }}</div>
   </button>
 </template>
