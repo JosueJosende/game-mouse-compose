@@ -2,7 +2,7 @@
 
 Un juego de agilidad y rapidez donde debes encontrar palabras, seleccionando las letras de un panel con tu cursor del ratón, antes de que se acabe el tiempo, para conseguir la mayor puntuación posible.
 
-![MouseWord](https://raw.githubusercontent.com/DeezGameMouse/deez-game-mouse/main/public/screenshot.png)
+![MouseWord](https://github.com/JosueJosende/game-mouse-compose/blob/main/public/screenshot.png)
 
 ## 🌟 Características
 
