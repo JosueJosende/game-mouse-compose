@@ -71,6 +71,11 @@ function startGameTimer() {
             // Remove the game from active games
             removeGame(game.gameId)
             gameOver(game.gameId)
+
+            // Remove active Player connections
+            /* gamePlayers.forEach((player) => {
+              players.delete(player.playerId)
+            }) */
           }
         }
       }
@@ -82,7 +87,7 @@ function startGameTimer() {
           timerInterval = null
         }
       }
-    }, 1000)
+    }, 500)
   }
 }
 

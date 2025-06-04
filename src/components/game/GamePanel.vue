@@ -171,7 +171,7 @@ const handleJoin = (status) => {
     <PointsPlayer :points="score" />
     <img
       class="w-[71%]"
-      src="../../../public/compose-mouse.png"
+      src="./public/compose-mouse.png"
       alt="mascota" />
     <CandleTimer :duration="timeLeft" />
   </div>
