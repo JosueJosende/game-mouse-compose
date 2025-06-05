@@ -1,4 +1,4 @@
-import { APIRoute } from 'astro'
+import type { APIRoute } from 'astro'
 import { getActiveGames, updateGame } from '@/controllers/game-controller'
 import { letterFrequencies, timeMap } from '@/constants/constants'
 import { generateLetterGrid } from '@/services/generate-pannel'
