@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted } from 'vue'
 import { useStore } from '@nanostores/vue'
 import { gameStore, resetGame } from '@/stores/gameStore'
 
