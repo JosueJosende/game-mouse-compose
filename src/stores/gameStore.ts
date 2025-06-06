@@ -304,7 +304,7 @@ export async function setDifficulty(difficulty: 'easy' | 'medium' | 'hard') {
   const timeMap = {
     'easy': 180, // 3 minutes
     'medium': 120, // 2 minutes
-    'hard': 60 // 1 minute
+    'hard': 59 // 1 minute
   }
 
   try {

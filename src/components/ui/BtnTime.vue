@@ -8,7 +8,7 @@ const emit = defineEmits(['selectTime'])
 const props = defineProps({
   time: {
     type: Array,
-    default: [60, 120, 180]
+    default: [59, 120, 180]
   },
   text: {
     type: Array,
