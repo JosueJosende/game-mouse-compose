@@ -89,14 +89,16 @@ export const POST: APIRoute = async ({ request }) => {
     const points = calculateWordPoints(word, game.difficulty)
     const playerIndex = game.players.indexOf(playerId)
 
+    const totalPoints = game.points[playerIndex] + points
+
     if (playerIndex !== -1) {
-      game.points[playerIndex] = (game.points[playerIndex] || 0) + points
+      game.points[playerIndex] = totalPoints
     }
 
     updateGame(game)
 
     // Retornamos la respuesta con la palabra válida
-    return new Response(JSON.stringify({ valid: true }), { status: 200, headers: { 'Content-Type': 'application/json' } })
+    return new Response(JSON.stringify({ valid: true, points: totalPoints }), { status: 200, headers: { 'Content-Type': 'application/json' } })
   } catch {
     return new Response(JSON.stringify({
       valid: false,

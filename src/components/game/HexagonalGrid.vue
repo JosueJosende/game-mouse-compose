@@ -25,7 +25,7 @@ const handleClearSelection = () => {
   <div
     v-if="!game.gameStarted"
     class="game-card flex flex-col h-full p-4">
-    <p class="text-white/60 text-lg w-full">📄 Reglas del juego:</p>
+    <p class="text-white/60 text-lg w-full mb-8 ml-2">📄 Reglas del juego:</p>
     <ul class="text-white/80 text-sm mt-2 px-8 flex flex-col gap-1 list-disc">
       <li class="text-[0.9rem] leading-5">Haz clic en las letras adyacentes para formar palabras.</li>
       <li class="text-[0.9rem] leading-5">Cada letra seleccionada se añadirá a la palabra en construcción.</li>

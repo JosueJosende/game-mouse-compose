@@ -193,7 +193,7 @@ export async function joinToTheGame(code: string) {
           gameStarted: true,
           letters: data.letters,
           timeLeft: data.timeLeft,
-          score: data.points,
+          //score: data.points,
           eventSource
         })
       } else if (data.type === 'game-over') {
@@ -251,7 +251,7 @@ export async function startGame() {
         gameStarted: true,
         letters: data.letters,
         timeLeft: data.timeLeft,
-        score: data.points,
+        //score: data.points,
         eventSource
       })
       
