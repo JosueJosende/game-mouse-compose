@@ -87,7 +87,7 @@ function startGameTimer() {
           timerInterval = null
         }
       }
-    }, 500)
+    }, 1000)
   }
 }
 
@@ -180,7 +180,7 @@ export const GET: APIRoute = async ({ request }) => {
   
   // Monitoreamos writer.closed para detectar cuando el cliente se desconecta
   writer.closed.catch(() => {
-    console.log(`Player ${playerId} disconnected from game ${gameId}`)
+    //console.log(`Player ${playerId} disconnected from game ${gameId}`)
     handleDisconnect()
   })
 

@@ -6,7 +6,7 @@ export function generateLetterGrid(difficulty: string, level: string): Letter[][
   const useIds = new Set<string>()
 
   const numLevel = Number(level)
-  console.log(typeof level);
+  //console.log(typeof level);
 
   const letterPool = []
   const selectedFrequencies =

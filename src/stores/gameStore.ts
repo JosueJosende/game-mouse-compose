@@ -109,7 +109,7 @@ export async function updateGame(propertiesGame: Partial<GameState>) {
     ...propertiesGame
   })
 
-  console.log('Game updated successfully:', propertiesGame);
+  //console.log('Game updated successfully:', propertiesGame);
   
 
   return true
@@ -180,14 +180,14 @@ export async function joinToTheGame(code: string) {
         }); */
       } else if (data.type === 'allReadyPlayers') {
       } else if (data.type === 'initGame') {
-        console.log('Game initialized:', data.game)
+        //console.log('Game initialized:', data.game)
 
         /* gameStore.set({
           ...currentGame,
           ...data.propertiesGame
         }); */
       } else if (data.type === 'game-ready') {
-        console.log('Game is ready to start:', data)
+        //console.log('Game is ready to start:', data)
         gameStore.set({
           ...currentGame,
           gameStarted: true,
@@ -197,7 +197,7 @@ export async function joinToTheGame(code: string) {
           eventSource
         })
       } else if (data.type === 'game-over') {
-        console.log('Game over:', data)
+        // console.log('Game over:', data)
         gameStore.set({
           ...currentGame,
           gameOver: true,
@@ -237,15 +237,15 @@ export async function startGame() {
     } else if (data.type === 'allReadyPlayers') {
 
     } else if (data.type === 'initGame') {
-      console.log('Game initialized:', data.game);
-      
+      // console.log('Game initialized:', data.game);
+
       /* gameStore.set({
         ...currentGame,
         ...data.propertiesGame
       }); */
 
     } else if (data.type === 'game-ready') {
-      console.log('Game is ready to start:', data);
+      // console.log('Game is ready to start:', data);
       gameStore.set({
         ...currentGame,
         gameStarted: true,
@@ -256,7 +256,7 @@ export async function startGame() {
       })
       
     } else if (data.type === 'game-over') {
-      console.log('Game over:', data)
+      // console.log('Game over:', data)
       gameStore.set({
         ...currentGame,
         gameOver: true,
@@ -272,7 +272,7 @@ export async function startGame() {
   }
 
   eventSource.onerror = (error) => {
-    console.error('Error in EventSource:', error);
+    //console.error('Error in EventSource:', error);
     eventSource.close();
   }
 }

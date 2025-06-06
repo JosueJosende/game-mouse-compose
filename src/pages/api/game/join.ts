@@ -28,7 +28,7 @@ export const POST: APIRoute = async ({ request }) => {
   game.players.push(playerId);
   game.playerCount = game.players.length;
   updateGame(game);
-  console.log(`Player ${playerId} joined game ${gameId}`);
+  //console.log(`Player ${playerId} joined game ${gameId}`);
   
 
   return new Response(JSON.stringify({ success: true, data: game }), {

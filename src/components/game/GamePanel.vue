@@ -83,7 +83,7 @@ watch(game, (newGame: typeof game.value) => {
 })
 
 const handleJoin = (status) => {
-  console.log('handleJoin status:', status, status.length)
+  //console.log('handleJoin status:', status, status.length)
 
   if (status === 'focus' && status.length <= 5) {
     viewJoin.value = true

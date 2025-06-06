@@ -56,7 +56,7 @@ function calculateWordPoints(word: string, difficulty: string): number {
 }
 
 export const POST: APIRoute = async ({ request }) => {
-  console.log('POST /api/game/submit-word');
+  // console.log('POST /api/game/submit-word');
   
   try {
     const body = await request.json()
