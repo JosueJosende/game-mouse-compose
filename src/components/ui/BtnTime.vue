@@ -17,7 +17,7 @@ const props = defineProps({
 })
 
 const time = {
-  60: 'easy',
+  59: 'easy',
   120: 'medium',
   180: 'hard'
 }
