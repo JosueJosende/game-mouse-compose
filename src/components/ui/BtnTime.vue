@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { setDifficulty } from '@/stores/gameStore'
 
-const selecttedTime = ref(60)
+const selecttedTime = ref(59)
 
 const emit = defineEmits(['selectTime'])
 const props = defineProps({
@@ -32,9 +32,14 @@ const selectTime = (timeSelected) => {
   <button
     v-for="(time, index) in props.time"
     :key="time"
+    :disabled="props.text[index] === '3 MIN' || props.text[index] === '2 MIN'"
     @click="selectTime(time)"
     class="relative w-1/2 h-16 hover:bg-black/40 border border-gray-700 text-gray-300 font-medium rounded-md shadow-md transition-all duration-200 ease-in-out focus:outline-none"
-    :class="selecttedTime === time ? 'bg-black/60' : 'bg-black/20'">
+    :class="{
+      'bg-black/60': selecttedTime === time,
+      'bg-black/20': selecttedTime !== time, // Asegura que solo uno de los fondos se aplique
+      'opacity-50 cursor-not-allowed': ['3 MIN', '2 MIN'].includes(props.text[index])
+    }">
     <!-- LED Indicador -->
     <div
       class="absolute top-2 left-2 w-2 h-2 rounded-full transition-all duration-300"

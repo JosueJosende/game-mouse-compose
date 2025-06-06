@@ -19,7 +19,7 @@ const handleSetLevel = (newLevel) => {
     <img
       class="w-full h-24 rounded-lg border border-transparent transition-all duration-300 ease-in-out"
       :class="level === levelSel ? 'opacity-100 scale-105 border-white' : 'opacity-50 scale-100 border-transparent'"
-      :src="`./public/size-${levelSel}.webp`"
+      :src="`./size-${levelSel}.webp`"
       alt="Size Panel" />
     <small class="absolute top-2 left-2 text-white text-xs -rotate-6 font-semibold [text-shadow:0_0_4px_black]"
       >{{ index === 0 ? 'HARD' : index === 1 ? 'MEDIUM' : 'EASY' }} <br />

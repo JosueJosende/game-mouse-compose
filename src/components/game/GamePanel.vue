@@ -115,7 +115,7 @@ const handleJoin = (status) => {
       <small class="text-center text-white/90 [text-shadow:0_0_4px_black]">Selecciona el tiempo que deseas que dure la partida</small>
       <div class="flex flex-col justify-around h-full items-center space-y-4 w-full max-w-xs max-h-[250px]">
         <BtnTime
-          :time="[60, 120, 180]"
+          :time="[59, 120, 180]"
           :text="['1 MIN', '2 MIN', '3 MIN']" />
       </div>
     </div>
@@ -171,7 +171,7 @@ const handleJoin = (status) => {
     <PointsPlayer :points="score" />
     <img
       class="w-[71%]"
-      src="./public/compose-mouse.png"
+      src="./compose-mouse.png"
       alt="mascota" />
     <CandleTimer :duration="timeLeft" />
   </div>
