@@ -12,7 +12,7 @@ const props = defineProps({
   duration: {
     type: Number,
     required: true,
-    default: 60
+    default: 59
   }
 })
 

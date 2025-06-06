@@ -9,7 +9,7 @@ const initialState: GameState = {
   playerId: '', // Se inicializa vacío
   difficulty: 'easy',
   level: 1,
-  timeLeft: 120, // 2 minutes default
+  timeLeft: 59, // 59 seconds default
   playerCount: 1,
   isMultiplayer: false,
   gameStarted: false,
