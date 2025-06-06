@@ -20,6 +20,24 @@ function startGameTimer() {
     timerInterval = setInterval(() => {
       const games = getActiveGames()
       
+      // Send heartbeat to all connected players every second
+      const allPlayers = Array.from(players.values())
+      allPlayers.forEach((player) => {
+        try {
+          // Enviar heartbeat más robusto con keep-alive
+          player.writer.write(
+            player.encoder.encode(`data: ${JSON.stringify({ 
+              type: 'heartbeat', 
+              timestamp: Date.now(),
+              keepAlive: true 
+            })}\n\n`)
+          )
+        } catch (err) {
+          // If heartbeat fails, remove the player
+          players.delete(player.playerId)
+        }
+      })
+      
       // Update timeLeft for all active games
       for (const game of games) {
         if (game.active && !game.isMultiplayer && !game.gameStarted) {
@@ -40,32 +58,42 @@ function startGameTimer() {
           const gamePlayers = Array.from(players.values()).filter((player) => player.gameId === game.gameId)
 
           gamePlayers.forEach((player, index) => {
-            player.writer.write(
-              player.encoder.encode(
-                `data: ${JSON.stringify({
-                  type: 'game-ready',
-                  timeLeft: game.timeLeft,
-                  players: game.players,
-                  points: game.points[index],
-                  letters: game.letters
-                })}\n\n`
+            try {
+              player.writer.write(
+                player.encoder.encode(
+                  `data: ${JSON.stringify({
+                    type: 'game-ready',
+                    timeLeft: game.timeLeft,
+                    players: game.players,
+                    points: game.points[index],
+                    letters: game.letters
+                  })}\n\n`
+                )
               )
-            )
+            } catch (err) {
+              // If send fails, remove the player
+              players.delete(player.playerId)
+            }
           })
 
           // If time is up, end the game
           if (game.timeLeft <= 0) {
             gamePlayers.forEach((player) => {
-              player.writer.write(
-                player.encoder.encode(
-                  `data: ${JSON.stringify({
-                    type: 'game-over',
-                    timeLeft: game.timeLeft,
-                    players: game.players,
-                    points: game.points
-                  })}\n\n`
+              try {
+                player.writer.write(
+                  player.encoder.encode(
+                    `data: ${JSON.stringify({
+                      type: 'game-over',
+                      timeLeft: game.timeLeft,
+                      players: game.players,
+                      points: game.points
+                    })}\n\n`
+                  )
                 )
-              )
+              } catch (err) {
+                // If send fails, remove the player
+                players.delete(player.playerId)
+              }
             })
 
             // Remove the game from active games
@@ -189,12 +217,31 @@ export const GET: APIRoute = async ({ request }) => {
     startGameTimer()
   }
 
+  // Enviar mensaje inicial de conexión establecida
+  try {
+    writer.write(
+      encoder.encode(
+        `data: ${JSON.stringify({
+          type: 'connection-established',
+          playerId,
+          gameId,
+          timestamp: Date.now()
+        })}\n\n`
+      )
+    )
+  } catch (err) {
+    console.error('Error enviando mensaje inicial:', err)
+  }
+
   // Return the readable stream as a response
   return new Response(stream.readable, {
     headers: {
       'Content-Type': 'text/event-stream',
       'Cache-Control': 'no-cache',
-      'Connection': 'keep-alive'
+      'Connection': 'keep-alive',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': 'Cache-Control',
+      'X-Accel-Buffering': 'no' // Evita buffering en proxies
     }
   })
 }
