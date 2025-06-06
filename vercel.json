@@ -1,13 +1,20 @@
 {
-  "functions": {
-    "dist/server/entry.mjs": {
-      "runtime": "nodejs20.x"
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
     }
-  },
+  ],
   "routes": [
     {
+      "handle": "filesystem"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/dist/server/entry.mjs"
+      "dest": "/index.html"
     }
   ]
 }
