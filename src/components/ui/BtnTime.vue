@@ -2,13 +2,13 @@
 import { ref } from 'vue'
 import { setDifficulty } from '@/stores/gameStore'
 
-const selecttedTime = ref(59)
+const selecttedTime = ref(60)
 
 const emit = defineEmits(['selectTime'])
 const props = defineProps({
   time: {
     type: Array,
-    default: [59, 120, 180]
+    default: [60, 120, 180]
   },
   text: {
     type: Array,
@@ -17,7 +17,7 @@ const props = defineProps({
 })
 
 const time = {
-  59: 'easy',
+  60: 'easy',
   120: 'medium',
   180: 'hard'
 }

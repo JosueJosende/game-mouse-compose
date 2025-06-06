@@ -9,7 +9,7 @@ const initialState: GameState = {
   playerId: '', // Se inicializa vacío
   difficulty: 'easy',
   level: 1,
-  timeLeft: 59, // 59 seconds default
+  timeLeft: 60, // 60 seconds default
   playerCount: 1,
   isMultiplayer: false,
   gameStarted: false,
@@ -304,7 +304,7 @@ export async function setDifficulty(difficulty: 'easy' | 'medium' | 'hard') {
   const timeMap = {
     'easy': 180, // 3 minutes
     'medium': 120, // 2 minutes
-    'hard': 59 // 1 minute
+    'hard': 60 // 1 minute
   }
 
   try {

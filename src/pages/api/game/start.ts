@@ -77,7 +77,7 @@ function startGameTimer() {
           })
 
           // If time is up, end the game
-          if (game.timeLeft <= 0) {
+          if (game.timeLeft <= 1) {
             gamePlayers.forEach((player) => {
               try {
                 player.writer.write(
